@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:x5registrationpage/Routes/AppPage.dart';
 import 'package:x5registrationpage/Routes/AppRoute.dart';
+import 'package:x5registrationpage/Views/Login.dart';
 import 'package:x5registrationpage/Views/Registration.dart';
 
 void main() {
@@ -21,10 +22,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoute.register,
+      initialRoute: AppRoute.login,
       getPages: AppPage.pages,
-      home: Registration(),
+      home: Login(),
     );
   }
 }
-
