@@ -14,12 +14,14 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    _loadSharedPreferences();
   }
 
   void _loadSharedPreferences() async {
     prefs = await SharedPreferences.getInstance();
     if (prefs.getString('token') != null) {
       Get.offAllNamed(AppRoute.home);
+      print("token: ${prefs.getString('token')}");
     }
   }
 

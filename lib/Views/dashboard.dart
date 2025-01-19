@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
             Column(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
           ElevatedButton(
               onPressed: () {
-                Get.offAllNamed(AppRoute.login);
+                _controller.logout();
               },
               child: Text('Logout'))
         ]),
