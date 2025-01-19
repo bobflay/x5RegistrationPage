@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:x5registrationpage/Controllers/RegistrationController.dart';
+import 'package:x5registrationpage/Controllers/LoginController.dart';
 import 'package:x5registrationpage/Routes/AppRoute.dart';
 
-class Registration extends StatefulWidget {
-  const Registration({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Registration> createState() => _RegistrationState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegistrationState extends State<Registration> {
-  final RegistrationController _registrationController =
-      Get.put(RegistrationController());
+class _LoginState extends State<Login> {
+  LoginController _controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class _RegistrationState extends State<Registration> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Center(
           child: Text(
-            "Registration Page",
+            "Login Page",
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22,
@@ -36,31 +35,20 @@ class _RegistrationState extends State<Registration> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(height: 20),
-            _buildInputLabel('Name'),
-            _buildTextField(
-                controller: _registrationController.name,
-                hintText: "Enter your full name"),
-            const SizedBox(height: 16),
             _buildInputLabel('Email'),
             _buildTextField(
-                controller: _registrationController.email,
-                hintText: "Enter your email"),
-            const SizedBox(height: 16),
-            _buildInputLabel('Mobile'),
-            _buildTextField(
-                controller: _registrationController.phone,
-                hintText: "Enter your mobile number"),
+                controller: _controller.email, hintText: "Enter your email"),
             const SizedBox(height: 16),
             _buildInputLabel('Password'),
             _buildTextField(
-                controller: _registrationController.password,
+                controller: _controller.password,
                 hintText: "Enter your password",
                 isPassword: true),
             const SizedBox(height: 24),
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  _registrationController.register();
+                  _controller.login();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
@@ -71,7 +59,7 @@ class _RegistrationState extends State<Registration> {
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 ),
                 child: const Text(
-                  'Register',
+                  'Login',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -83,10 +71,10 @@ class _RegistrationState extends State<Registration> {
             Center(
               child: TextButton(
                 onPressed: () {
-                  Get.toNamed(AppRoute.login);
+                  Get.toNamed(AppRoute.register);
                 },
                 child: const Text(
-                  "Already have an account? Log in",
+                  "Doesn't have an account? Register here",
                   style: TextStyle(color: Colors.deepPurple),
                 ),
               ),
