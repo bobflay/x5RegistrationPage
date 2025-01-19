@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoute.register,
+      initialRoute: AppRoute.login,
       getPages: AppPage.pages,
       home: Registration(),
     );
   }
 }
-
